@@ -4,7 +4,9 @@
   "description": "REST API example with Node, Express and GraphQl",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --colors --progress",
+    "test:unit": "NODE_ENV=testing rm -rf ./tmp/mocha-webpack && mocha-webpack --webpack-config webpack.testing.js \"src/**/*.spec.js\" --timeout 10000 --require source-map-support/register",
+    "test": "npm run test:unit"
   },
   "repository": {
     "type": "git",
