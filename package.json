@@ -1,0 +1,29 @@
+{
+  "name": "rest-api-express",
+  "version": "1.0.0",
+  "description": "REST API example with Node, Express and GraphQl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vibecode/rest-api-express.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "express",
+    "node",
+    "graphql"
+  ],
+  "author": "vibecode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vibecode/rest-api-express/issues"
+  },
+  "homepage": "https://github.com/vibecode/rest-api-express#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
