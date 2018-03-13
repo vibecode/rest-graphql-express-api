@@ -1,34 +1,17 @@
 {
   "name": "rest-api-express",
   "version": "1.0.0",
-  "description": "REST API example with Node, Express and GraphQl",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "start": "webpack --colors --progress",
     "test:unit": "NODE_ENV=testing rm -rf ./tmp/mocha-webpack && mocha-webpack --webpack-config webpack.testing.js \"src/**/*.spec.js\" --timeout 10000 --require source-map-support/register",
     "test": "npm run test:unit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/vibecode/rest-api-express.git"
-  },
-  "keywords": [
-    "rest",
-    "api",
-    "express",
-    "node",
-    "graphql"
-  ],
-  "author": "vibecode",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vibecode/rest-api-express/issues"
-  },
-  "homepage": "https://github.com/vibecode/rest-api-express#readme",
   "dependencies": {
-    "express": "^4.16.2",
     "apollo-server-express": "^1.1.6",
     "bcrypt": "^1.0.3",
+    "express": "^4.16.2",
     "express-jwt": "^5.3.0",
     "graphql-tools": "^2.4.0",
     "jsonwebtoken": "^8.1.0",
