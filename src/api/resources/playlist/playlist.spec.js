@@ -4,7 +4,7 @@ import { Playlist, schema } from './playlist.model'
 import mongoose from 'mongoose'
 
 describe('Playlist Model', () => {
-  it('should have tilte', () => {
+  it('should have title', () => {
     expect(schema.title).to.exist
     expect(schema.title.type).to.eql(String)
     expect(schema.title.required).to.be.an('array')
