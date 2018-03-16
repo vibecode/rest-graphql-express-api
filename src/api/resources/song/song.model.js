@@ -4,20 +4,25 @@ export const schema = {
   title: {
     type: String,
     unique: true,
-    required: [true, 'A song should have a title']
+    required: [true, 'A song must have a title']
   },
   url: {
     type: String,
     unique: true,
-    required: [true, 'A song should have an url']
+    required: [true, 'A song must have a url']
   },
   album: String,
   artist: String,
   rating: {
-    type: Number
+    type: Number,
+    min: 0,
+    max: 5,
+    default: 0
   },
   favorite: {
-    type: Boolean
+    type: Boolean,
+    required: true,
+    default: false
   }
 }
 
