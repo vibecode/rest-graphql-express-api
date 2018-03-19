@@ -12,7 +12,7 @@ describe('Modules', () => {
     await dropDb()
   })
 
-  xdescribe('query', () => {
+  describe('query', () => {
     describe('createOne', () => {
       it('should create a document', async () => {
         const result = await controllers.createOne(User, {

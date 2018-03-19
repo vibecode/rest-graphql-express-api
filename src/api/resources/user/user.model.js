@@ -1,18 +1,16 @@
 import mongoose from 'mongoose'
 
-export const schema = {
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
-    unique: true
+    unique: true,
+    required: true
   },
   passwordHash: {
+    required: true,
     type: String,
-    required: true
   }
-}
-
-const userSchema = new mongoose.Schema(schema, {timestamps: true})
+}, {timestamps: true})
 
 userSchema.methods = {
   authenticate(plaintTextPassword) {

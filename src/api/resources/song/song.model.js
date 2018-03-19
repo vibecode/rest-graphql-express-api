@@ -1,35 +1,33 @@
 import mongoose from 'mongoose'
 
-export const schema = {
+const songSchema = new mongoose.Schema({
   title: {
     type: String,
-    unique: true,
-    required: [true, 'A song must have a title']
+    required: [true, 'Song must have a title']
   },
+
   url: {
     type: String,
     unique: true,
-    required: [true, 'A song must have a url']
+    required: [true, 'Song must have a url']
   },
+
   album: String,
+
   artist: String,
+
   rating: {
     type: Number,
     min: 0,
     max: 5,
     default: 0
   },
+
   favorite: {
     type: Boolean,
     required: true,
     default: false
   }
-}
-
-const songSchema = new mongoose.Schema(schema)
-
-songSchema.pre('validate', () => {
-
 })
 
 export const Song = mongoose.model('song', songSchema)
