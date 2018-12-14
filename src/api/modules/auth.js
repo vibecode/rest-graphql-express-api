@@ -10,7 +10,7 @@ export const signin = (req, res, next) => {
   // verify user. Then we can just create a token
   // and send it back for the client to consume
   const token = signToken(req.user.id)
-  res.json({token: token})
+  res.json({ token: token })
 }
 
 export const decodeToken = () => (req, res, next) => {
@@ -63,12 +63,12 @@ export const verifyUser = () => (req, res, next) => {
 
   // look user up in the DB so we can check
   // if the passwords match for the username
-  User.findOne({username: username})
+  User.findOne({ username: username })
     .then(function(user) {
       if (!user) {
         res.status(401).send('No user with the given username')
       } else {
-        // checking the passowords here
+        // checking the passwords here
         if (!user.authenticate(password)) {
           res.status(401).send('Wrong password')
         } else {
@@ -76,7 +76,7 @@ export const verifyUser = () => (req, res, next) => {
           // then attach to req.user
           // and call next so the controller
           // can sign a token from the req.user._id
-          req.user = user;
+          req.user = user
           next()
         }
       }
@@ -84,10 +84,7 @@ export const verifyUser = () => (req, res, next) => {
     .catch(error => next(err))
 }
 
-export const signToken = (id) => jwt.sign(
-  {id},
-  config.secrets.JWT_SECRET,
-  {expiresIn: config.expireTime}
-)
+export const signToken = id =>
+  jwt.sign({ id }, config.secrets.JWT_SECRET, { expiresIn: config.expireTime })
 
 export const protect = [decodeToken(), getFreshUser()]
