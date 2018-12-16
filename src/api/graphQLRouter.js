@@ -1,22 +1,22 @@
 import { makeExecutableSchema } from 'graphql-tools'
 import { userType, userResolvers } from './resources/user'
-import { songType } from './resources/song'
-import { playlistType } from './resources/playlist'
+import { songType, songResolvers } from './resources/song'
+import { playlistType, playlistResolvers } from './resources/playlist'
 import merge from 'lodash.merge'
 import { graphqlExpress } from 'apollo-server-express'
 
-const baseSchema = `{
-    schema {
-        query: Query
-    }
-}`
+const baseSchema = `
+  schema {
+    query: Query
+  }
+`
 
 const schema = makeExecutableSchema({
-  typeDefs: [baseSchema, songType, playlistType, userType],
-  resolvers: merge({}, userResolvers)
+  typeDefs: [baseSchema, userType, songType, playlistType],
+  resolvers: merge({}, userResolvers, songResolvers, playlistResolvers)
 })
 
-export const graphQLrouter = graphqlExpress(req => ({
+export const graphQLRouter = graphqlExpress(req => ({
   schema,
   context: {
     req,

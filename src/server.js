@@ -3,7 +3,7 @@ import setupMiddware from './middleware'
 import { restRouter } from './api'
 import { connect } from './db'
 import { signin, protect } from './api/modules/auth'
-import { graphQLrouter } from './api/graphQLRouter'
+import { graphQLRouter } from './api/graphQLRouter'
 import { graphiqlExpress } from 'apollo-server-express'
 // Declare an app from express
 const app = express()
@@ -14,7 +14,7 @@ connect()
 
 app.use('/signin', signin)
 app.use('/api', protect, restRouter)
-app.use('/graphql', graphQLrouter)
+app.use('/graphql', graphQLRouter)
 app.use('/docs', graphiqlExpress({ endpointURL: 'graphql' }))
 // catch all
 app.all('*', (req, res) => {

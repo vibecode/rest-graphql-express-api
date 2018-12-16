@@ -5,7 +5,7 @@ type User {
   updatedAt: String!
 }
 
-input UpdateUser {
+input UpdatedUser {
   username: String!
 }
 
