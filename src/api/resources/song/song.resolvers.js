@@ -5,7 +5,7 @@ const getSong = (_, { id }, { user }) => {
 }
 
 const allSongs = () => {
-  Song.find({}).exec()
+  return Song.find({}).exec()
 }
 
 const newSong = (_, { input }) => {

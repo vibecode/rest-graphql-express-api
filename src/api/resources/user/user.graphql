@@ -3,6 +3,7 @@ type User {
   username: String!
   createdAt: String!
   updatedAt: String!
+  playlists: [Playlist]!
 }
 
 input UpdatedUser {

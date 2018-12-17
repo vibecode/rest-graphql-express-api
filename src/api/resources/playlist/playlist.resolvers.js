@@ -19,6 +19,14 @@ const updatePlaylist = (_, { input }) => {
   return Playlist.findByIdAndUpdate(id, update, { new: true }).exec()
 }
 
+const songs = async playlist => {
+  const populated = await playlist
+
+  populated.populate('songs').execPopulate()
+
+  return populated.songs
+}
+
 export const playlistResolvers = {
   Query: {
     allPlaylists,
@@ -28,5 +36,9 @@ export const playlistResolvers = {
   Mutation: {
     newPlaylist,
     updatePlaylist
+  },
+
+  Playlist: {
+    songs
   }
 }

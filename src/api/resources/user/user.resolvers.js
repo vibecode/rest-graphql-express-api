@@ -2,12 +2,16 @@ import { User } from './user.model'
 import merge from 'lodash.merge'
 
 const getMe = (_, __, { user }) => {
-  return { user }
+  return user
 }
 
 const updateMe = (_, { input }, { user }) => {
   mergeSchemas(user, input)
   return user.save()
+}
+
+const playlists = () => {
+  return Playlist.find({}).exec()
 }
 
 export const userResolvers = {
@@ -17,5 +21,9 @@ export const userResolvers = {
 
   Mutation: {
     updateMe
+  },
+
+  User: {
+    playlists
   }
 }
