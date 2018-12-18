@@ -3,6 +3,7 @@ const path = require('path')
 process.env.NODE_ENV = 'testing'
 
 module.exports = {
+  mode: 'development',
   target: 'node',
   output: {
     devtoolModuleFilenameTemplate: '[absolute-resource-path]',

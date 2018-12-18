@@ -6,7 +6,7 @@ const getMe = (_, __, { user }) => {
 }
 
 const updateMe = (_, { input }, { user }) => {
-  mergeSchemas(user, input)
+  merge(user, input)
   return user.save()
 }
 

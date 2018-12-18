@@ -13,7 +13,7 @@ const createApiSpec = (model, resourceName, newResource) => {
 
     beforeEach(async () => {
       await dropDb()
-      const user = await User.create({username: 'stu1', passwordHash: '123'})
+      const user = await User.create({ username: 'stu1', passwordHash: '123' })
       jwt = signToken(user.id)
     })
 
@@ -23,7 +23,8 @@ const createApiSpec = (model, resourceName, newResource) => {
 
     describe(`GET /${resourceName}`, () => {
       it(`should get all ${resourceName}`, async () => {
-        const result = await chai.request(app)
+        const result = await chai
+          .request(app)
           .get(`/api/${resourceName}`)
           .set('Authorization', `Bearer ${jwt}`)
 
@@ -34,7 +35,8 @@ const createApiSpec = (model, resourceName, newResource) => {
 
     describe(`POST /${resourceName}`, () => {
       it(`should create a ${resourceName}`, async () => {
-        const result = await chai.request(app)
+        const result = await chai
+          .request(app)
           .post(`/api/${resourceName}`)
           .set('Authorization', `Bearer ${jwt}`)
           .send(newResource)

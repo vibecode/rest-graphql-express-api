@@ -15,7 +15,7 @@ const newSong = (_, { input }) => {
 const updateSong = (_, { input }) => {
   const { id, ...update } = input
 
-  return Song.findByIdAndUpdate(id, update, { new: true })
+  return Song.findByIdAndUpdate(id, update, { new: true }).exec()
 }
 
 export const songResolvers = {
@@ -23,6 +23,7 @@ export const songResolvers = {
     allSongs,
     Song: getSong
   },
+
   Mutation: {
     newSong,
     updateSong
